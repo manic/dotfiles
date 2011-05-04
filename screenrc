@@ -1,0 +1,31 @@
+#
+#attrcolor b ".I"
+#attrcolor i "+b"
+bindkey ^Aa other
+#caption always "%{dk}%{+b K}> %{W}%n %t %{K}<%{W}%=%{+b K}load{%l} %{C}$USER@%{W}%H %{db}%{W}  %0C %A  "
+caption always "%-w%<%{=B GK}%n %t%{= KW}%+w"
+hardstatus alwayslastline "%{=b BW} {%l}%018=%{=b WK} %n %t %-029=%{YK} %Y %M %d(%D) %{RW} %C %A"
+defbce "on"
+defc1 "off"
+defscrollback 2000
+defutf8 on
+escape ^A^A
+termcap xterm
+termcapinfo xterm "Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm"
+vbell off
+utf8 on
+# Keybindings
+register n "^aS^a:focus down^M^ac^a:resize 10^M"
+bindkey -k k2 process n
+register m "^aS^a:focus down^M^ac^a:resize 10^M^a:focus up^M"
+bindkey -k k3 process m
+register o "^d^a:remove^M"
+bindkey -k k4 process o
+#bindkey -k k4 next					# F4  | Next Window
+register r "^a:source $HOME/.screenrc^M"		#     | Goes with F5 definition
+bindkey -k k5 process r					# F5  | Reload profile
+bindkey -k k6 detach					# F6  | Detach from this session
+bindkey -k k7 copy					# F7  | Enter copy/scrollback mode
+register t "^aA^aa^k^h"					#     | Goes with the F8 definition
+bindkey -k k8 process t 				# F8  | Re-title a window
+bindkey -k F2 lockscreen				# F12 | Lock this terminal
